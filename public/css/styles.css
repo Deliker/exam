@@ -1,0 +1,492 @@
+/* Основные стили */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Стили для страницы со слотами */
+.search-bar {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.slot-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.balance {
+    font-size: 1.5em;
+}
+
+.bet-controls {
+    display: flex;
+    align-items: center;
+}
+
+.bet-controls label {
+    margin-right: 10px;
+}
+
+#bet-amount {
+    width: 100px;
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.slot-machine {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.reel {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #fff;
+    margin: 5px;
+    text-align: center;
+    font-size: 2em;
+    line-height: 100px;
+    background-color: #000;
+    color: #fff;
+}
+
+.spin-btn {
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #e74c3c;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.spin-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+.spin-btn:disabled {
+    background-color: #888;
+    cursor: not-allowed;
+}
+
+.slot-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.slot-link {
+    display: block;
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.slot-link img {
+    max-width: 100%;
+    height: auto;
+}
+
+.slot-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header {
+    background-color: #333;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 2.5rem;
+    color: #e74c3c;
+    margin-right: 20px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #e74c3c;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-buttons .btn {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 10px;
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-buttons .btn:hover {
+    background-color: #e74c3c;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Profile Button */
+.profile-btn {
+    position: relative;
+}
+
+.profile-btn:hover .balance-tooltip {
+    display: block;
+}
+
+/* Balance Tooltip */
+.balance-tooltip {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://example.com/hero-image.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 150px 20px;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+.hero h2 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+}
+
+.hero a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #e74c3c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.hero a:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+    margin-top: auto;
+}
+
+footer a {
+    text-decoration: none;
+    color: #e74c3c;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Profile Container */
+.profile-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.profile-card {
+    padding: 20px;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-header h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.profile-header .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.profile-header .btn:hover {
+    background-color: #0056b3;
+}
+
+.profile-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #444;
+    margin-right: 20px;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info h3 {
+    font-size: 2rem;
+    margin: 0 0 10px;
+}
+
+.profile-info p {
+    margin: 5px 0;
+    font-size: 1.2rem;
+}
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.balance-form, .logout-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.balance-label, .form-label {
+    margin-bottom: 5px;
+}
+
+.balance-input, .form-input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.add-balance-btn {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.add-balance-btn:hover {
+    background-color: #218838;
+}
+
+.logout-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}
+
+.save-btn {
+    background-color: #007bff;
+    color: #fff;
+    width: 100%;
+}
+
+.save-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Анимация для кнопки при нажатии */
+.spin-btn:active {
+    transform: scale(0.98);
+    background-color: #d32f2f;
+}
+
+/* Стили для форм аутентификации */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-form {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.auth-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.auth-form .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+.auth-form .form-group .invalid-feedback {
+    color: #e74c3c;
+}
+
+.auth-form .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.auth-form .btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Анимация для катушек */
+.reel.spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
