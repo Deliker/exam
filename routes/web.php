@@ -6,18 +6,24 @@ use App\Http\Controllers\SlotController;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ChatController;
 
 // Маршрут домашней страницы
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Маршруты для слотов
-Route::get('/slots', [SlotController::class, 'index'])->name('slots.index');
-Route::get('/slots/fairies-dragons', [SlotController::class, 'fairiesDragons'])->name('slots.fairies-dragons');
-Route::get('/slots/magical-tales', [SlotController::class, 'magicalTales'])->name('slots.magical-tales');
-Route::get('/slots/mystic-adventure', [SlotController::class, 'mysticAdventure'])->name('slots.mystic-adventure');
-Route::get('/slots/mythical-creatures', [SlotController::class, 'mythicalCreatures'])->name('slots.mythical-creatures');
-Route::get('/slots/pirates-treasures', [SlotController::class, 'piratesTreasures'])->name('slots.pirates-treasures');
+Route::get('/', function () {
+    return view('index');
+});
 
+Route::get('/slots', [SlotController::class, 'index'])->name('slots.index');
+Route::get('/slot-fairies-dragons', [SlotController::class, 'fairiesDragons'])->name('slots.fairies-dragons');
+Route::get('/slot-magical-tales', [SlotController::class, 'magicalTales'])->name('slots.magical-tales');
+Route::get('/slot-mystic-adventure', [SlotController::class, 'mysticAdventure'])->name('slots.mystic-adventure');
+Route::get('/slot-mystical-creatures', [SlotController::class, 'mythicalCreatures'])->name('slots.mythical-creatures');
+Route::get('/slot-pirates-treasures', [SlotController::class, 'piratesTreasures'])->name('slots.pirates-treasures');
+Route::get('/slot-mystic-adventures', [SlotController::class, 'mysticAdventures'])->name('slots.mystic-adventures');
+Route::post('/spin', [SlotController::class, 'spin'])->name('slots.spin');
 // Маршруты для поддержки
 Route::get('/support', [SupportController::class, 'index'])->name('support');
 
@@ -36,7 +42,13 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 
+Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
+Route::get('/messages/{chatId}', [ChatController::class, 'fetchMessages']);
+Route::post('/messages', [ChatController::class, 'sendMessage']);
+
 Auth::routes();
 
 // Убедитесь, что маршрут /home определен только один раз
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+

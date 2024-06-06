@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Slot;
 
 class SlotController extends Controller
 {
@@ -35,24 +37,33 @@ class SlotController extends Controller
     {
         return view('slot-pirates-treasures');
     }
-    public function updateBalance(Request $request)
-{
-    $user = auth()->user();
-    $betAmount = $request->input('bet_amount');
-    $spinResult = rand(0, 1);
-    $winAmount = $spinResult ? $betAmount * 2 : 0;
 
-    // Обновление баланса
-    $user->balance -= $betAmount;
-    $user->balance += $winAmount;
-    $user->save();
+    public function mysticAdventures()
+    {
+        return view('slot-mystic-adventures');
+    }
 
-    return response()->json([
-        'balance' => $user->balance,
-        'result' => $spinResult ? 'win' : 'lose',
-        'win_amount' => $winAmount
-    ]);
+    public function spin(Request $request)
+    {
+        $user = Auth::user();
+        $betAmount = $request->input('betAmount');
+        $winAmount = $request->input('winAmount');
+        $slotName = $request->input('slotName');
+
+        // Обновление баланса пользователя
+        $user->balance = $user->balance - $betAmount + $winAmount;
+        $user->save();
+
+        // Обновление данных слота
+        $slot = Slot::firstOrCreate(
+            ['name' => $slotName, 'user_id' => $user->id],
+            ['spent_amount' => 0, 'won_amount' => 0, 'spin_count' => 0]
+        );
+        $slot->spent_amount += $betAmount;
+        $slot->won_amount += $winAmount;
+        $slot->spin_count += 1;
+        $slot->save();
+
+        return response()->json(['balance' => $user->balance]);
+    }
 }
-
-}
-

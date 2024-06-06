@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const symbols = ['🧚‍♀️', '🐉', '🦄', '🧙‍♂️', '🌟', '🍀', '🧚‍♂️', '🔥', '🌈'];
+    const symbols = ['🍒', '🍋', '🍊', '🍉', '🔔', '⭐', '🍇', '🍓', '🍍'];
     const reels = [
         document.getElementById('reel1'),
         document.getElementById('reel2'),
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: JSON.stringify({
                     betAmount: betAmount,
                     winAmount: winAmount,
-                    slotName: 'Fairies & Dragons'
+                    slotName: 'Mystic Adventure'
                 })
             })
             .then(response => response.json())

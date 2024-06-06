@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="slot-machine-container">
-    <h1>Mythical Creatures</h1>
+    <h1>Mystic Adventure</h1>
     <div>Balance: $<span id="balance">{{ Auth::user()->balance }}</span></div>
     <div>
         <label for="betAmount">Bet Amount: $</label>
@@ -10,37 +10,37 @@
     </div>
     <div class="slot-machine">
         <div class="reel" id="reel1">
-            <div class="symbol">🧚‍♂️</div>
-            <div class="symbol">🐉</div>
-            <div class="symbol">🦄</div>
-            <div class="symbol">🧙‍♂️</div>
-            <div class="symbol">🌟</div>
-            <div class="symbol">🍀</div>
-            <div class="symbol">🧚‍♂️</div>
-            <div class="symbol">🔥</div>
-            <div class="symbol">🌈</div>
+            <div class="symbol">🍒</div>
+            <div class="symbol">🍋</div>
+            <div class="symbol">🍊</div>
+            <div class="symbol">🍉</div>
+            <div class="symbol">🔔</div>
+            <div class="symbol">⭐</div>
+            <div class="symbol">🍇</div>
+            <div class="symbol">🍓</div>
+            <div class="symbol">🍍</div>
         </div>
         <div class="reel" id="reel2">
-            <div class="symbol">🧚‍♂️</div>
-            <div class="symbol">🐉</div>
-            <div class="symbol">🦄</div>
-            <div class="symbol">🧙‍♂️</div>
-            <div class="symbol">🌟</div>
-            <div class="symbol">🍀</div>
-            <div class="symbol">🧚‍♂️</div>
-            <div class="symbol">🔥</div>
-            <div class="symbol">🌈</div>
+            <div class="symbol">🍒</div>
+            <div class="symbol">🍋</div>
+            <div class="symbol">🍊</div>
+            <div class="symbol">🍉</div>
+            <div class="symbol">🔔</div>
+            <div class="symbol">⭐</div>
+            <div class="symbol">🍇</div>
+            <div class="symbol">🍓</div>
+            <div class="symbol">🍍</div>
         </div>
         <div class="reel" id="reel3">
-            <div class="symbol">🧚‍♂️</div>
-            <div class="symbol">🐉</div>
-            <div class="symbol">🦄</div>
-            <div class="symbol">🧙‍♂️</div>
-            <div class="symbol">🌟</div>
-            <div class="symbol">🍀</div>
-            <div class="symbol">🧚‍♂️</div>
-            <div class="symbol">🔥</div>
-            <div class="symbol">🌈</div>
+            <div class="symbol">🍒</div>
+            <div class="symbol">🍋</div>
+            <div class="symbol">🍊</div>
+            <div class="symbol">🍉</div>
+            <div class="symbol">🔔</div>
+            <div class="symbol">⭐</div>
+            <div class="symbol">🍇</div>
+            <div class="symbol">🍓</div>
+            <div class="symbol">🍍</div>
         </div>
     </div>
     <button id="spinButton">Spin</button>
@@ -49,7 +49,7 @@
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<script src="{{ asset('js/slot-mythical-creatures.js') }}"></script>
+<script src="{{ asset('js/slot-mystic-adventures.js') }}"></script>
 
 @endsection
 
